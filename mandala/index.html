@@ -1,1 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Mandala</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0d0d0f;
+      color: #d4d4d8;
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1a0533 0%, #0d0d0f 60%);
+      border-bottom: 1px solid #2a1a4a;
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+
+    .game-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a78bfa;
+      background: rgba(167,139,250,0.1);
+      border: 1px solid rgba(167,139,250,0.25);
+      border-radius: 20px;
+      padding: 4px 14px;
+      margin-bottom: 20px;
+    }
+
+    h1.main-title {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800;
+      color: #f4f4f5;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    h1.main-title span {
+      color: #a78bfa;
+    }
+
+    .subtitle {
+      color: #71717a;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .toc {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+
+    .toc h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #71717a;
+      margin-bottom: 14px;
+    }
+
+    .toc ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    .toc li { margin-bottom: 6px; }
+    .toc a {
+      color: #a78bfa;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.15s;
+    }
+    .toc a:hover { color: #c4b5fd; text-decoration: underline; }
+
+    section {
+      margin-bottom: 52px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f4f4f5;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #27272a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: rgba(167,139,250,0.15);
+      color: #a78bfa;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #a1a1aa;
+      margin: 24px 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 12px;
+    }
+
+    p {
+      color: #a1a1aa;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 14px;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 18px;
+      color: #a1a1aa;
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      background: #a78bfa;
+      border-radius: 50%;
+    }
+
+    .highlight-box {
+      background: rgba(167,139,250,0.07);
+      border-left: 3px solid #a78bfa;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: #c4b5fd;
+    }
+
+    .warning-box {
+      background: rgba(251,191,36,0.07);
+      border-left: 3px solid #fbbf24;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: #fde68a;
+    }
+
+    .not-collected {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 12px 0;
+    }
+
+    .not-collected li::before { background: #52525b; }
+    .not-collected li { color: #71717a; }
+
+    a { color: #a78bfa; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .contact-card {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 12px;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-card .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #52525b;
+    }
+
+    .contact-card .value {
+      color: #a78bfa;
+      font-size: 15px;
+    }
+
+    footer {
+      border-top: 1px solid #27272a;
+      text-align: center;
+      padding: 24px;
+      color: #52525b;
+      font-size: 13px;
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 32px 16px 60px; }
+      .hero { padding: 40px 16px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="game-badge">Mandala — Steam</div>
+  <h1 class="main-title">Privacy <span>Policy</span></h1>
+  <p class="subtitle">Last updated: March 11, 2025 &nbsp;·&nbsp; Version 1.0</p>
+</div>
+
+<div class="container">
+
+  <nav class="toc">
+    <h3>Table of Contents</h3>
+    <ol>
+      <li><a href="#s1">Data Controller</a></li>
+      <li><a href="#s2">Data We Collect</a></li>
+      <li><a href="#s3">Purpose of Processing</a></li>
+      <li><a href="#s4">Legal Basis</a></li>
+      <li><a href="#s5">GameAnalytics — Third-Party Service</a></li>
+      <li><a href="#s6">Data We Do NOT Collect</a></li>
+      <li><a href="#s7">Data Retention</a></li>
+      <li><a href="#s8">Your Rights (GDPR)</a></li>
+      <li><a href="#s9">Children</a></li>
+      <li><a href="#s10">Changes to this Policy</a></li>
+      <li><a href="#s11">Contact</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1 -->
+  <section id="s1">
+    <h2><span class="num">1</span> Data Controller</h2>
+    <p>The data controller for <strong>Mandala</strong> is an independent (indie) developer. For any privacy-related request, please contact us at the address listed in the <strong>Contact</strong> section below or via the game's Steam store page.</p>
+    <p>Mandala is built with <strong>Unity</strong> and uses <strong>GameAnalytics</strong> to collect anonymous gameplay data for the sole purpose of improving the game.</p>
+  </section>
+
+  <!-- 2 -->
+  <section id="s2">
+    <h2><span class="num">2</span> Data We Collect</h2>
+    <p>Mandala collects only anonymous, aggregated analytics data through GameAnalytics. <strong>No personally identifiable information is collected.</strong></p>
+
+    <h3>2.1 — Device &amp; Technical Data</h3>
+    <ul>
+      <li>Operating system and version</li>
+      <li>Device model and manufacturer</li>
+      <li>Game version installed</li>
+      <li>Network connection type (not content)</li>
+      <li>Anonymous user identifier assigned by GameAnalytics (not linkable to a real identity)</li>
+    </ul>
+
+    <h3>2.2 — Session &amp; Gameplay Data</h3>
+    <ul>
+      <li>Number of runs per session</li>
+      <li>Survival time per run</li>
+      <li>Distance traveled by the character</li>
+      <li>Number of pauses</li>
+      <li>Lowest FPS recorded (performance monitoring)</li>
+      <li>Best score achieved in the session</li>
+      <li>Total app session duration</li>
+      <li>Score snapshots over time (every 30 seconds)</li>
+    </ul>
+
+    <h3>2.3 — Combat &amp; Progression Data</h3>
+    <ul>
+      <li>Enemy types and kill counts</li>
+      <li>Charged attacks used and cancelled</li>
+      <li>Projectiles fired, hits, and misses (accuracy rate)</li>
+      <li>Shield blocks</li>
+      <li>Enemy type that caused the player's death</li>
+      <li>Number of active enemies and spawn interval at time of death</li>
+    </ul>
+
+    <h3>2.4 — Upgrade &amp; Powerup System Data</h3>
+    <ul>
+      <li>Powerups offered per type</li>
+      <li>Powerups selected per type</li>
+      <li>Number of upgrade rounds completed</li>
+      <li>Upgrade points earned</li>
+      <li>Average decision time in the selection screen</li>
+      <li>Maximum upgrade level reached</li>
+      <li>Final build composition at run end</li>
+    </ul>
+
+    <h3>2.5 — Behavioural Data</h3>
+    <ul>
+      <li>Pickups collected per type</li>
+      <li>Input method used (keyboard, controller, touch)</li>
+      <li>Quit context (pause menu, death screen, session end)</li>
+      <li>First-time player flag (anonymous boolean)</li>
+    </ul>
+  </section>
+
+  <!-- 3 -->
+  <section id="s3">
+    <h2><span class="num">3</span> Purpose of Processing</h2>
+    <p>All collected data is used exclusively to:</p>
+    <ul>
+      <li>Improve game balance and design (death patterns, progression, combat mechanics)</li>
+      <li>Optimise technical performance across hardware configurations</li>
+      <li>Understand usage patterns to prioritise future updates and content</li>
+      <li>Detect and fix bugs or gameplay anomalies</li>
+    </ul>
+    <div class="highlight-box">
+      Data is <strong>never</strong> used for advertising, commercial profiling, or sold to third parties.
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="s4">
+    <h2><span class="num">4</span> Legal Basis</h2>
+    <p>Processing of anonymous analytics data is based on the <strong>legitimate interest</strong> of the data controller (Art. 6(1)(f) GDPR) to improve the quality of the software product, balanced against users' fundamental rights and freedoms.</p>
+    <p>Where required by applicable law, explicit user consent may be requested prior to data collection.</p>
+  </section>
+
+  <!-- 5 -->
+  <section id="s5">
+    <h2><span class="num">5</span> GameAnalytics — Third-Party Service</h2>
+    <p>Mandala uses <strong>GameAnalytics</strong> (GameAnalytics ApS, Copenhagen, Denmark) as its analytics platform. GameAnalytics acts as a data processor on behalf of the data controller.</p>
+    <ul>
+      <li>GameAnalytics Privacy Policy: <a href="https://gameanalytics.com/privacy/" target="_blank" rel="noopener">gameanalytics.com/privacy</a></li>
+      <li>GameAnalytics Terms of Service: <a href="https://gameanalytics.com/terms/" target="_blank" rel="noopener">gameanalytics.com/terms</a></li>
+    </ul>
+    <p>Data is transmitted to GameAnalytics servers over an encrypted connection (HTTPS). GameAnalytics may store data on servers located in the European Union and/or the United States, subject to appropriate safeguards under EU data transfer regulations (e.g. Standard Contractual Clauses).</p>
+  </section>
+
+  <!-- 6 -->
+  <section id="s6">
+    <h2><span class="num">6</span> Data We Do NOT Collect</h2>
+    <div class="not-collected">
+      <ul>
+        <li>Name, email address, or any contact information</li>
+        <li>Payment or financial data (handled exclusively by Steam/Valve)</li>
+        <li>Precise geographic location</li>
+        <li>Chat content, messages, or communications</li>
+        <li>Steam account data (managed by Valve Corporation)</li>
+        <li>Identifiable data relating to minors</li>
+      </ul>
+    </div>
+    <p>For information about your Steam account, purchase history, and personal data on the Steam platform, please refer to <a href="https://store.steampowered.com/privacy_agreement/" target="_blank" rel="noopener">Valve's Privacy Policy</a>.</p>
+  </section>
+
+  <!-- 7 -->
+  <section id="s7">
+    <h2><span class="num">7</span> Data Retention</h2>
+    <p>Anonymous analytics data is retained on GameAnalytics servers for the period necessary for statistical processing, generally no longer than <strong>24 months</strong>. Because data is anonymous and cannot be linked to a specific individual, individual deletion rights under GDPR may not be technically applicable.</p>
+  </section>
+
+  <!-- 8 -->
+  <section id="s8">
+    <h2><span class="num">8</span> Your Rights (GDPR)</h2>
+    <p>To the extent that data collected falls within the scope of the GDPR, you have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> — request information about the data being processed</li>
+      <li><strong>Rectification</strong> — request correction of inaccurate data</li>
+      <li><strong>Erasure</strong> ("right to be forgotten") — request removal of your data</li>
+      <li><strong>Restriction</strong> — request limitation of processing</li>
+      <li><strong>Objection</strong> — object to processing based on legitimate interest</li>
+      <li><strong>Portability</strong> — receive data in a structured, machine-readable format</li>
+    </ul>
+    <div class="warning-box">
+      Since all collected data is anonymous, it may not be technically possible to identify and isolate data relating to a specific user.
+    </div>
+    <p>You may also lodge a complaint with the Italian data protection authority: <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la Protezione dei Dati Personali</a>.</p>
+  </section>
+
+  <!-- 9 -->
+  <section id="s9">
+    <h2><span class="num">9</span> Children</h2>
+    <p>Mandala is not specifically directed at children under the age of 13. We do not knowingly collect analytics data from children under 13. If a parent or guardian believes their child has provided data, please contact us to request its removal.</p>
+  </section>
+
+  <!-- 10 -->
+  <section id="s10">
+    <h2><span class="num">10</span> Changes to this Policy</h2>
+    <p>We reserve the right to update this policy. In the event of material changes, a notice will be posted on the Mandala Steam store page. The date of last modification is shown at the top of this document. Continued use of the game after changes are published constitutes acceptance of the updated policy.</p>
+  </section>
+
+  <!-- 11 -->
+  <section id="s11">
+    <h2><span class="num">11</span> Contact</h2>
+    <div class="contact-card">
+      <div>
+        <div class="label">Game</div>
+        <div class="value">Mandala</div>
+      </div>
+      <div>
+        <div class="label">Developer Email</div>
+        <div class="value"><a href="mailto:divoragg@gmail.com">divoragg@gmail.com</a></div>
+      </div>
+      <div>
+        <div class="label">Platform</div>
+        <div class="value"><a href="https://store.steampowered.com" target="_blank" rel="noopener">Steam Store Page</a></div>
+      </div>
+    </div>
+    <p style="margin-top:14px;">We will respond to requests within 30 days of receipt.</p>
+  </section>
+
+</div>
+
+<footer>
+  &copy; 2025 Mandala — All rights reserved &nbsp;·&nbsp; Privacy Policy v1.0
+</footer>
+
+</body>
+</html>
