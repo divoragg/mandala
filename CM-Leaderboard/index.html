@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Leaderboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #000;
+  --fg:       #fff;
+  --muted:    rgba(255,255,255,0.28);
+  --divider:  rgba(255,255,255,0.10);
+  --font:     'Quicksand', sans-serif;
+  --row-h:    72px;
+  --side-pad: 48px;
+  --video-ratio: calc(360 / 1200 * 100%);
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 var(--side-pad);
+}
+
+.video-block {
+  width: 100%;
+  margin-top: 40px;
+  position: relative;
+  padding-top: var(--video-ratio);
+  background: transparent;
+}
+
+.video-block video,
+.video-block .video-ph {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-block video {
+  display: block;
+  object-fit: cover;
+}
+
+.video-block .video-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--divider);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lb {
+  flex: 1;
+  margin-top: 36px;
+}
+
+.lb-head {
+  display: grid;
+  grid-template-columns: 56px 1fr 180px 140px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid var(--fg);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lb-head .r { text-align: right; }
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 180px 140px;
+  align-items: center;
+  height: var(--row-h);
+  border-bottom: 1px solid var(--divider);
+  opacity: 0;
+  animation: fadeUp 0.4s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.lb-row:nth-child(1)  { animation-delay: 0.04s; }
+.lb-row:nth-child(2)  { animation-delay: 0.08s; }
+.lb-row:nth-child(3)  { animation-delay: 0.12s; }
+.lb-row:nth-child(4)  { animation-delay: 0.16s; }
+.lb-row:nth-child(5)  { animation-delay: 0.20s; }
+.lb-row:nth-child(6)  { animation-delay: 0.24s; }
+.lb-row:nth-child(7)  { animation-delay: 0.28s; }
+.lb-row:nth-child(8)  { animation-delay: 0.32s; }
+.lb-row:nth-child(9)  { animation-delay: 0.36s; }
+.lb-row:nth-child(10) { animation-delay: 0.40s; }
+
+.c-rank {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.lb-row.rank-1 .c-rank,
+.lb-row.rank-2 .c-rank,
+.lb-row.rank-3 .c-rank {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.c-name {
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 24px;
+  color: var(--muted);
+}
+.c-name.filled { color: var(--fg); }
+
+.c-score {
+  text-align: right;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+.c-score.filled { color: var(--fg); }
+
+.c-time {
+  text-align: right;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.c-time.filled { color: var(--muted); }
+
+.foot {
+  padding: 20px 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.foot-count,
+.foot-clock {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (min-width: 1024px) {
+  :root { --row-h: 80px; --side-pad: 64px; }
+  .lb-head, .lb-row { grid-template-columns: 64px 1fr 200px 160px; }
+  .c-name  { font-size: 1.1rem; }
+  .c-score { font-size: 1.05rem; }
+}
+
+@media (max-width: 600px) {
+  :root { --row-h: 60px; --side-pad: 20px; }
+  .lb-head, .lb-row { grid-template-columns: 40px 1fr 110px; }
+  .c-time, .lb-head .h-time { display: none; }
+  .c-name  { font-size: 0.9rem; }
+  .c-score { font-size: 0.85rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="video-block">
+    <video id="vid" autoplay muted loop playsinline>
+      <source src="title.mp4" type="video/mp4"/>
+    </video>
+    <div class="video-ph" id="novid">game title</div>
+  </div>
+
+  <div class="lb">
+    <div class="lb-head">
+      <span>#</span>
+      <span>Player</span>
+      <span class="r">Score</span>
+      <span class="r h-time">Time</span>
+    </div>
+    <div id="lbBody"></div>
+  </div>
+
+  <div class="foot">
+    <span class="foot-count" id="footCount"></span>
+    <span class="foot-clock" id="footClock"></span>
+  </div>
+
+</div>
+
+<script>
+const TOTAL_ROWS = 10;
+const PLAYERS = [];
+
+const lbBody = document.getElementById("lbBody");
+
+for (let i = 0; i < TOTAL_ROWS; i++) {
+  const rank = i + 1;
+  const p    = PLAYERS[i] || null;
+  const row  = document.createElement("div");
+  row.className = `lb-row${rank <= 3 ? " rank-" + rank : ""}`;
+  row.innerHTML = `
+    <span class="c-rank">${rank}</span>
+    <span class="c-name${p ? " filled" : ""}">${p ? p.name : "—"}</span>
+    <span class="c-score${p ? " filled" : ""}">${p ? p.score.toLocaleString("en-US") : "—"}</span>
+    <span class="c-time${p ? " filled" : ""}">${p ? p.time : "—"}</span>
+  `;
+  lbBody.appendChild(row);
+}
+
+const filled = PLAYERS.length;
+document.getElementById("footCount").textContent = filled > 0 ? `${filled} / ${TOTAL_ROWS}` : "";
+
+function pad(n) { return String(n).padStart(2, "0"); }
+function clock() {
+  const d = new Date();
+  document.getElementById("footClock").textContent =
+    `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+}
+clock();
+setInterval(clock, 1000);
+
+const vid = document.getElementById("vid");
+const src = vid.querySelector("source").getAttribute("src");
+if (src && src.trim()) {
+  document.getElementById("novid").style.display = "none";
+} else {
+  vid.style.display = "none";
+}
+</script>
+
+</body>
+</html>
