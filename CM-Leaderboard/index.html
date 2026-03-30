@@ -31,7 +31,7 @@ const PLAYERS = [
   --muted:    rgba(255,255,255,0.28);
   --divider:  rgba(255,255,255,0.10);
   --font:     'Quicksand', sans-serif;
-  --row-h:    72px;
+  --row-h:    108px;
   --side-pad: 48px;
   --video-ratio: calc(360 / 1200 * 100%);
 }
@@ -91,7 +91,7 @@ html, body {
 
 .lb-head {
   display: grid;
-  grid-template-columns: 56px 1fr 180px;
+  grid-template-columns: 64px 320px 1fr;
   padding: 0 0 14px;
   border-bottom: 1px solid var(--fg);
   font-size: 0.7rem;
@@ -104,7 +104,7 @@ html, body {
 
 .lb-row {
   display: grid;
-  grid-template-columns: 56px 1fr 180px;
+  grid-template-columns: 64px 320px 1fr;
   align-items: center;
   height: var(--row-h);
   border-bottom: 1px solid var(--divider);
@@ -129,7 +129,7 @@ html, body {
 .lb-row:nth-child(10) { animation-delay: 0.40s; }
 
 .c-rank {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--muted);
   letter-spacing: 0.04em;
@@ -142,7 +142,7 @@ html, body {
 }
 
 .c-name {
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   font-weight: 500;
   letter-spacing: 0.01em;
   white-space: nowrap;
@@ -155,7 +155,7 @@ html, body {
 
 .c-score {
   text-align: right;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   color: var(--muted);
@@ -178,17 +178,17 @@ html, body {
 }
 
 @media (min-width: 1024px) {
-  :root { --row-h: 80px; --side-pad: 64px; }
-  .lb-head, .lb-row { grid-template-columns: 64px 1fr 200px; }
-  .c-name  { font-size: 1.1rem; }
-  .c-score { font-size: 1.05rem; }
+  :root { --row-h: 108px; --side-pad: 64px; }
+  .lb-head, .lb-row { grid-template-columns: 64px 320px 1fr; }
+  .c-name  { font-size: 1.3rem; }
+  .c-score { font-size: 1.25rem; }
 }
 
 @media (max-width: 600px) {
-  :root { --row-h: 60px; --side-pad: 20px; }
-  .lb-head, .lb-row { grid-template-columns: 40px 1fr 110px; }
-  .c-name  { font-size: 0.9rem; }
-  .c-score { font-size: 0.85rem; }
+  :root { --row-h: 70px; --side-pad: 20px; }
+  .lb-head, .lb-row { grid-template-columns: 40px 1fr 120px; }
+  .c-name  { font-size: 0.95rem; }
+  .c-score { font-size: 0.9rem; }
 }
 </style>
 </head>
@@ -214,7 +214,6 @@ html, body {
 
   <div class="foot">
     <span class="foot-count" id="footCount"></span>
-    <span class="foot-clock" id="footClock"></span>
   </div>
 
 </div>
@@ -237,15 +236,6 @@ for (let i = 0; i < TOTAL_ROWS; i++) {
 
 const filled = PLAYERS.length;
 document.getElementById("footCount").textContent = filled > 0 ? `${filled} / ${TOTAL_ROWS}` : "";
-
-function pad(n) { return String(n).padStart(2, "0"); }
-function clock() {
-  const d = new Date();
-  document.getElementById("footClock").textContent =
-    `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
-}
-clock();
-setInterval(clock, 1000);
 
 document.addEventListener("click", () => {
   const el = document.documentElement;
