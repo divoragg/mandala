@@ -77,7 +77,7 @@ html, body {
 
 .lb-head {
   display: grid;
-  grid-template-columns: 56px 1fr 180px 140px;
+  grid-template-columns: 56px 1fr 180px;
   padding: 0 0 14px;
   border-bottom: 1px solid var(--fg);
   font-size: 0.7rem;
@@ -90,7 +90,7 @@ html, body {
 
 .lb-row {
   display: grid;
-  grid-template-columns: 56px 1fr 180px 140px;
+  grid-template-columns: 56px 1fr 180px;
   align-items: center;
   height: var(--row-h);
   border-bottom: 1px solid var(--divider);
@@ -148,15 +148,6 @@ html, body {
 }
 .c-score.filled { color: var(--fg); }
 
-.c-time {
-  text-align: right;
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-}
-.c-time.filled { color: var(--muted); }
-
 .foot {
   padding: 20px 0 32px;
   display: flex;
@@ -174,7 +165,7 @@ html, body {
 
 @media (min-width: 1024px) {
   :root { --row-h: 80px; --side-pad: 64px; }
-  .lb-head, .lb-row { grid-template-columns: 64px 1fr 200px 160px; }
+  .lb-head, .lb-row { grid-template-columns: 64px 1fr 200px; }
   .c-name  { font-size: 1.1rem; }
   .c-score { font-size: 1.05rem; }
 }
@@ -182,7 +173,6 @@ html, body {
 @media (max-width: 600px) {
   :root { --row-h: 60px; --side-pad: 20px; }
   .lb-head, .lb-row { grid-template-columns: 40px 1fr 110px; }
-  .c-time, .lb-head .h-time { display: none; }
   .c-name  { font-size: 0.9rem; }
   .c-score { font-size: 0.85rem; }
 }
@@ -204,7 +194,6 @@ html, body {
       <span>#</span>
       <span>Player</span>
       <span class="r">Score</span>
-      <span class="r h-time">Time</span>
     </div>
     <div id="lbBody"></div>
   </div>
@@ -231,7 +220,6 @@ for (let i = 0; i < TOTAL_ROWS; i++) {
     <span class="c-rank">${rank}</span>
     <span class="c-name${p ? " filled" : ""}">${p ? p.name : "—"}</span>
     <span class="c-score${p ? " filled" : ""}">${p ? p.score.toLocaleString("en-US") : "—"}</span>
-    <span class="c-time${p ? " filled" : ""}">${p ? p.time : "—"}</span>
   `;
   lbBody.appendChild(row);
 }
