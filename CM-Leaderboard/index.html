@@ -247,6 +247,14 @@ function clock() {
 clock();
 setInterval(clock, 1000);
 
+document.addEventListener("click", () => {
+  const el = document.documentElement;
+  if (!document.fullscreenElement) {
+    if (el.requestFullscreen) el.requestFullscreen();
+    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  }
+}, { once: true });
+
 const vid = document.getElementById("vid");
 const src = vid.querySelector("source").getAttribute("src");
 if (src && src.trim()) {
