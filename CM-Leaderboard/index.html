@@ -1,8 +1,22 @@
+<!-- =============================================
+  PLAYERS — edit this list to update the leaderboard
+  Example: { name: "SHADOWBYTE", score: 987654 }
+============================================= -->
+<script>
+const TOTAL_ROWS = 10;
+const PLAYERS = [
+  // { name: "PLAYER NAME", score: 00000 },
+];
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 <title>Leaderboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -206,9 +220,6 @@ html, body {
 </div>
 
 <script>
-const TOTAL_ROWS = 10;
-const PLAYERS = [];
-
 const lbBody = document.getElementById("lbBody");
 
 for (let i = 0; i < TOTAL_ROWS; i++) {
